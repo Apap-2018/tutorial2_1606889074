@@ -1,0 +1,142 @@
+Latihan Project Viral
+1. Ganti baris @RequestMapping(“/viral”) menjadi @RequestMapping(“/viral2jari”).
+Kemudian run kembali.
+
+a. Apakah terjadi compile error?
+
+Tidak terjadi compile error
+
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+
+Saat mengakses localhost:8080/viral muncul pesan berikut:
+
+"Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 19 14:07:59 ICT 2018
+There was an unexpected error (type=Not Found, status=404).
+No message available"
+
+Pesan tersebut memberitahukan bahwa tidak ada mapping untuk "/viral" karenasebelumnya di file PageController.java RequestMapping tersebut telah diganti menjadi "/viral2jari"
+
+c. Apakah Kegunaan @RequestMapping(“/viral”)
+
+@RequestMapping("/viral") berfungsi untuk menjadikan alamat .../viral agar bisa diakses. Dalam kasus ini, /viral akan me return html bernama "viral.html"
+
+Kembalikan menjadi @RequestMapping(“/viral”)
+
+2. Ganti nama method index() menjadi nama method viral()
+
+a. Apakah terjadi compile error?
+
+Tidak terjadi compile error
+
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+
+Halaman terbuka seperti biasa. Hal ini berarti jika nama method diganti maka tidak apa-apa selama nama method tersebut dipakai secara konstan ketika dipanggil ulang (oleh method atau class lain).
+
+Kembalikan menjadi index()
+
+3. Ganti string return type menjadi menjadi return “viral2jari”
+
+a. Apakah terjadi compile error?
+
+Tidak terjadi compile error
+
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+
+Muncul error berikut:
+"Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 19 14:20:11 ICT 2018
+There was an unexpected error (type=Internal Server Error, status=500).
+Error resolving template "viral2jari", template might not exist or might not be accessible by any of the configured Template Resolvers"
+
+Page tidak menunjukan apa-apa karena tidak ada template bernama "viral2jari" di workspace ini.
+
+c. Apakah kegunaan return type pada method controller tersebut?
+
+Kegunaan return type adalah untuk menentukan file template apa yang harus di tampilkan pada Page. Dalam kasus ini, seharusnya dituliskan return "viral" karena file html yang tersedia adalah "viral.html"
+
+
+Latihan? ?Request? ?Parameter
+1. Mengapa tulisan “In My feeling” pada thymeleaf challenge tidak pernah muncul di browser?
+
+Karena..................
+
+2. Ubah nilai anotasi Request Mapping “/challenge” menjadi “/viral/challenge”. Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
+
+Browser akan menunjukkan error berikut:
+"Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 19 14:43:46 ICT 2018
+There was an unexpected error (type=Not Found, status=404).
+No message available"
+
+Hal ini terjadi karena Mapping telah diubah. Untuk dapat menampilkan laman, bisa diakses melalui http://localhost:8080/viral/challenge?name=kiki
+
+3. Akses localhost:8080/challenge.
+
+a. Deskripsikan hasilnya
+
+Page akan menampilkan berikut:
+"Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 19 14:46:43 ICT 2018
+There was an unexpected error (type=Bad Request, status=400).
+Required String parameter 'name' is not present"
+
+Hal ini terjadi karena parameter 'name' tidak dimasukkan dalam URL
+
+b. Ubah methodnya menjadi seperti di bawah ini, deskripsikan lalu kembalikan ke bentuk awal!
+
+Page akan menampilkan berikut:
+"null do you love me?
+
+Are you riding?"
+
+Hal ini terjadi karena dalam method telah di deskripsikan required = false. Sehingga tidak wajib menuliskan value pada parameter "name". Hal ini menyebabkan tulisan "null" pada page.
+
+c. Ubah methodnya menjadi seperti di bawah ini, deskripsikan lalu kembalikan
+ke bentuk awal!
+
+Page akan menampilkan berikut:
+"kiki do you love me?
+
+Are you riding?"
+
+Sama seperti sebelumnya, tidak wajib untuk menuliskan value pada parameter "name". Tapi karena telah di set defaultValue = "kiki", maka jika value tidak ada, akan muncul default value tersebut yaitu "kiki".
+
+Latihan? ?Path Variable
+1. Akses localhost:8080/challenge/
+Apakah hasil dari halaman tersebut?
+
+Page akan menampilkan berikut:
+"Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Wed Sep 19 14:52:14 ICT 2018
+There was an unexpected error (type=Bad Request, status=400).
+Required String parameter 'name' is not present"
+
+Penjelasan seperti poin a Latihan Request Parameter
+
+2. Ubah method challengePath menjadi seperti berikut
+Akses localhost:8080/challenge/
+Apakah hasil dari halaman tersebut?
+
+Page akan menampilan berikut:
+"KB do you love me?
+
+Are you riding?"
+
+3. Akses localhost:8080/challenge/kiki
+Apakah hasil dari halaman tersebut?
+
+Page akan menampilan berikut:
+"kiki do you love me?
+
+Are you riding?"
