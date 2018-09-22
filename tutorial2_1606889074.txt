@@ -1,5 +1,7 @@
+========================================================================================================================================
 Latihan Project Viral
-1. Ganti baris @RequestMapping(ì/viralî) menjadi @RequestMapping(ì/viral2jariî).
+========================================================================================================================================
+1. Ganti baris @RequestMapping(‚Äú/viral‚Äù) menjadi @RequestMapping(‚Äú/viral2jari‚Äù).
 Kemudian run kembali.
 
 a. Apakah terjadi compile error?
@@ -19,12 +21,12 @@ No message available"
 
 Pesan tersebut memberitahukan bahwa tidak ada mapping untuk "/viral" karenasebelumnya di file PageController.java RequestMapping tersebut telah diganti menjadi "/viral2jari"
 
-c. Apakah Kegunaan @RequestMapping(ì/viralî)
+c. Apakah Kegunaan @RequestMapping(‚Äú/viral‚Äù)
 
 @RequestMapping("/viral") berfungsi untuk menjadikan alamat .../viral agar bisa diakses. Dalam kasus ini, /viral akan me return html bernama "viral.html"
 
-Kembalikan menjadi @RequestMapping(ì/viralî)
-
+Kembalikan menjadi @RequestMapping(‚Äú/viral‚Äù)
+========================================================================================================================================
 2. Ganti nama method index() menjadi nama method viral()
 
 a. Apakah terjadi compile error?
@@ -36,8 +38,8 @@ b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi
 Halaman terbuka seperti biasa. Hal ini berarti jika nama method diganti maka tidak apa-apa selama nama method tersebut dipakai secara konstan ketika dipanggil ulang (oleh method atau class lain).
 
 Kembalikan menjadi index()
-
-3. Ganti string return type menjadi menjadi return ìviral2jariî
+========================================================================================================================================
+3. Ganti string return type menjadi menjadi return ‚Äúviral2jari‚Äù
 
 a. Apakah terjadi compile error?
 
@@ -55,17 +57,18 @@ Error resolving template "viral2jari", template might not exist or might not be 
 
 Page tidak menunjukan apa-apa karena tidak ada template bernama "viral2jari" di workspace ini.
 
-c. Apakah kegunaan return type pada method controller tersebut?
+c. Apakah kegunaan return type pada method controller tersebut?
 
 Kegunaan return type adalah untuk menentukan file template apa yang harus di tampilkan pada Page. Dalam kasus ini, seharusnya dituliskan return "viral" karena file html yang tersedia adalah "viral.html"
 
+========================================================================================================================================
+Latihan? ?Request? ?Parameter
+========================================================================================================================================
+1. Mengapa tulisan ‚ÄúIn My feeling‚Äù pada thymeleaf challenge tidak pernah muncul di browser?
 
-Latihan? ?Request? ?Parameter
-1. Mengapa tulisan ìIn My feelingî pada thymeleaf challenge tidak pernah muncul di browser?
-
-Karena..................
-
-2. Ubah nilai anotasi Request Mapping ì/challengeî menjadi ì/viral/challengeî. Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
+Karena ada attribut th yang menimpa fungsi dari p di html
+========================================================================================================================================
+2. Ubah nilai anotasi Request Mapping ‚Äú/challenge‚Äù menjadi ‚Äú/viral/challenge‚Äù. Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
 
 Browser akan menunjukkan error berikut:
 "Whitelabel Error Page
@@ -76,7 +79,7 @@ There was an unexpected error (type=Not Found, status=404).
 No message available"
 
 Hal ini terjadi karena Mapping telah diubah. Untuk dapat menampilkan laman, bisa diakses melalui http://localhost:8080/viral/challenge?name=kiki
-
+========================================================================================================================================
 3. Akses localhost:8080/challenge.
 
 a. Deskripsikan hasilnya
@@ -110,7 +113,9 @@ Are you riding?"
 
 Sama seperti sebelumnya, tidak wajib untuk menuliskan value pada parameter "name". Tapi karena telah di set defaultValue = "kiki", maka jika value tidak ada, akan muncul default value tersebut yaitu "kiki".
 
+========================================================================================================================================
 Latihan? ?Path Variable
+========================================================================================================================================
 1. Akses localhost:8080/challenge/
 Apakah hasil dari halaman tersebut?
 
@@ -123,7 +128,7 @@ There was an unexpected error (type=Bad Request, status=400).
 Required String parameter 'name' is not present"
 
 Penjelasan seperti poin a Latihan Request Parameter
-
+========================================================================================================================================
 2. Ubah method challengePath menjadi seperti berikut
 Akses localhost:8080/challenge/
 Apakah hasil dari halaman tersebut?
@@ -132,7 +137,7 @@ Page akan menampilan berikut:
 "KB do you love me?
 
 Are you riding?"
-
+========================================================================================================================================
 3. Akses localhost:8080/challenge/kiki
 Apakah hasil dari halaman tersebut?
 
